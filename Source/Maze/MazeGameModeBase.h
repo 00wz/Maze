@@ -21,5 +21,5 @@ public:
 		, int MazeHaight, int MazeWidth, int SectionSize, bool Sleep);
 
 private:
-	void VisualizeMaze(UWorld* World, const UMazeGenerator* Generator, TSubclassOf<AActor> WallActorClass, float CellSize);
+	void VisualizeMaze(UWorld* World, UMazeGenerator* Generator, TSubclassOf<AActor> WallActorClass, float CellSize);
 };

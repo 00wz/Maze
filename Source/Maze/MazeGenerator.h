@@ -40,5 +40,5 @@ private:
 public:
 	int GetHeight() const { return MazeHeight;}
 	int GetWidth() const { return  MazeWidth;}
-	const TArray<TArray<FMazeCell>>& GetGrid() const { return MazeGrid;}
+	TArray<TArray<FMazeCell>>& GetGrid() { return MazeGrid;}
 };

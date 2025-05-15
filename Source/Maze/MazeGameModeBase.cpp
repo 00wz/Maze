@@ -46,7 +46,7 @@ void AMazeGameModeBase::CreateMaze(TSubclassOf<AActor> WallActorClass, float Cel
 	);
 }
 
-void AMazeGameModeBase:: VisualizeMaze(UWorld* World, const UMazeGenerator* Generator, TSubclassOf<AActor> WallActorClass, float CellSize)
+void AMazeGameModeBase:: VisualizeMaze(UWorld* World, UMazeGenerator* Generator, TSubclassOf<AActor> WallActorClass, float CellSize)
 {
 	if (!World || !Generator || !WallActorClass)
 	{
@@ -56,8 +56,11 @@ void AMazeGameModeBase:: VisualizeMaze(UWorld* World, const UMazeGenerator* Gene
 
 	const int Width = Generator->GetWidth();
 	const int Height = Generator->GetHeight();
-	const auto& Grid = Generator->GetGrid();
+	auto& Grid = Generator->GetGrid();
 
+	Grid[0][Height - 1].bWallLeft = false;
+	Grid[Width - 1][0].bWallRight = false;
+	
 	for (int x = 0; x < Width; ++x)
 	{
 		for (int y = 0; y < Height; ++y)
